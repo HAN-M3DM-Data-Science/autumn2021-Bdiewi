@@ -11,6 +11,8 @@ output:
 
 <iframe width="560" height="315" src="https://www.youtube.com/watch?v=SUIcf2U6pu4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+
+
 ## Why was data driven decision making (3DM) useful in this business case?
 
 data driven decision making opens up new possibilities for the BMW production system,large quantities of data are generated at many stages in car production today which helps to higher the quality of the productions,uses the resources more efficiently and manage the maintenance system more precisely.
