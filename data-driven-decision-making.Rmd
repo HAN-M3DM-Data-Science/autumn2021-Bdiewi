@@ -20,20 +20,17 @@ Search Youtube for a suitable business case example on data driven decision maki
 
 ## Why was data driven decision making (3DM) useful in this business case?
 
-data driven decision making opens up new possibilities for the BMW production system, large quantities of data are generated at many stages in car production today which helps to higher the quality of the productions, uses the resources more efficiently and manage the maintenance system more precisely.
+data driven decision making opens up new possibilities for the BMW production system,large quantities of data are generated at many stages in car production today which helps to higher the quality of the productions,uses the resources more efficiently and manage the maintenance system more precisely.
 
 ## How did the organization apply 3DM?
 
 Merging DM in the innovative solutions has benefits BMW production in many ways, for example in the Press shop.
 
 Several kilometers worth of steel are used to form parts for the body, but on a three- kilometer roll of steel there are bound to be deviations, so the material is not equally strong or thick in all places. The question was, how can the press that forms the flat sheet into body parts be adjusted to the unique individual characteristics of a cut panel.
-
-
 With the help of the DM, Each tailored piece is gauged and given a laser marking with data that can be transmitted into the press, which allows the press to adjust its form based on the data that has been transmitted throw the laser marking. 
 
 
 ## What can the organization do with 3DM that they couldn’t do before?
 
-The predictive maintenance system has ensured a reliable operation of many systems., which helps to predict breakdowns before it occurs.
-Sensors monitor up to 2000 robots perform welding and bonding operations with maximum precision. The sensors monitor the status of the robot’s gears and brakes, so they are always fully synchronized. As a results, the maintenance technicians are able to intervene at exactly the right time.  
+The predictive maintenance system has ensured a reliable operation of many systems., which helps to predict breakdowns before it occurs.Sensors monitor up to 2000 robots perform welding and bonding operations with maximum precision.The sensors monitor the status of the robot’s gears and brakes,so they are always fully synchronized. As a results, the maintenance technicians are able to intervene at exactly the right time.  
 
