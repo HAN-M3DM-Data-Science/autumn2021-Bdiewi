@@ -8,15 +8,8 @@ output:
     toc_depth: 2
 ---
 
-Search Youtube for a suitable business case example on data driven decision making and copy the embed code below.
-
-<---- Watch this video if you don't know how to embed video's ---->
 
 <iframe width="560" height="315" src="https://www.youtube.com/watch?v=SUIcf2U6pu4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-
-<---- Replace this video with your business case example ---->
-
 
 ## Why was data driven decision making (3DM) useful in this business case?
 
