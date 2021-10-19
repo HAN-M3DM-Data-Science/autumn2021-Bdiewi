@@ -1,0 +1,124 @@
+---
+title: "Assigment - kNN DIY"
+author:
+  - name author here - Colin van Leeuwen
+  - name reviewer here - Imad Bdiewi
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+   html_notebook:
+    toc: true
+    toc_depth: 2
+---
+
+
+```{r}
+library(tidyverse)
+library(googlesheets4)
+library(class)
+library(caret)
+```
+
+---
+
+Choose a suitable dataset from [this](https://github.com/HAN-M3DM-Data-Mining/assignments/tree/master/datasets) folder and train  your own kNN model. Follow all the steps from the CRISP-DM model.
+
+
+## Business Understanding
+The dataset shows the Blood values from a group of Blood donors. In order to see if the persons and the Blood values are healthy enough to give it to patients, we should analyze it and see if they are healty or not. 
+
+## Data Understanding
+The data contains next to a numBer, Category, age and sex, 10 different (Blood) values. 
+
+## Data Preparation
+```{r}
+url <- "KNN-hcvdat0.csv"
+rawDF <- read_csv(url)[-1]
+str(rawDF)
+cleanDF2 <- na.omit(rawDF)
+set.seed(42)
+rows <- sample(nrow(cleanDF2))
+cleanDF2 <- cleanDF2[rows, ]
+view(cleanDF2)
+sum(is.na(cleanDF2))
+```
+
+## counting 
+```{r}
+cntCat <- table(cleanDF2$Category)
+propCat <- round(prop.table(cntCat) * 100 , digits = 1)
+cntCat
+propCat
+```
+
+## Change Type
+```{r}
+cleanDF2$Category <- cleanDF2$Category %>% factor
+
+cleanDF2$Category <- fct_collapse(cleanDF2$Category, donor = "0=Blood Donor", suspectdonor = "0s=suspect Blood Donor", hepatitis = c("1=Hepatitis", "2=Fibrosis", "3=Cirrhosis"))
+levels(cleanDF2$Category)
+
+```
+## Making a summary
+```{r}
+summary(cleanDF2[c("CREA", "GGT")])
+```
+
+## Making a function and testing it
+```{r}
+normalize <- function(x) { # Function takes in a vector
+  return ((x - min(x)) / (max(x) - min(x))) # distance of item value - minimum vector value divided by the range of all vector values
+}
+
+testSet1 <- c(1:5)
+testSet2 <- c(1:5) * 10
+
+testSet1 <- c(1:5)
+testSet2 <- c(1:5) * 10
+
+cat("testSet1:", testSet1, "\n")
+cat("testSet2:", testSet2, "\n")
+cat("Normalized testSet1:", normalize(testSet1), "\n")
+cat("Normalized testSet2:", normalize(testSet2))
+```
+
+##verwijderen van onnodige kolommen
+```{r}
+NorDF <- cleanDF2[4:13]
+```
+
+
+## Normalize the dataset
+```{r}        
+cleanDF_no <- sapply(1:10,
+                    function(x) {
+  normalize(NorDF[,x])
+}) %>% as.data.frame()
+
+summary(cleanDF_no[c("CREA", "GGT")])
+```
+
+## Making Test datasets
+```{r}
+trainDF_feat <- cleanDF_no[1:515,  ]
+testDF_feat <- cleanDF_no[516:589,  ]
+```
+
+## Making Test labels
+```{r}
+trainDF_labels <- cleanDF2[1:515,  1]
+testDF_labels <- cleanDF2[516:589,  1]
+```
+
+## Training program
+```{r}
+cleanDF_test_pred <- knn(train = as.matrix(trainDF_feat), test = as.matrix(testDF_feat), cl = as.matrix(trainDF_labels), k = 21)
+head(cleanDF_test_pred)
+```
+
+## Making table
+```{r}
+confusionMatrix(cleanDF_test_pred, testDF_labels[[1]], positive = NULL, dnn = c("Prediction", "True"))
+
+```
+
+reviewer adds suggestions for improving the model
